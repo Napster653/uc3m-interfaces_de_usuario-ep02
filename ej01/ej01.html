@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>PCMR UC3M</title>
+		<link rel="stylesheet" type="text/css" href="style/base.css">
+		<link rel="stylesheet" type="text/css" href="style/ej01.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<script src="scripts/script.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<form id="modalForm" name="modalForm" onsubmit="return false">
+					<input id="emailModal" name="emailModal" type="email" placeholder="Email" required>
+					<input id="passwordModal" name="passwordModal" type="password" placeholder="Password" required pattern="[a-z0-9]{1,8}">
+					<input id="submitBtn" type="button" value="Submit" onclick="checkEmail()">
+				</form>
+			</div>			
+		</div>
+
+		<header>
+			<ul>
+				<li class="headerLeft">
+					<img src="./images/logo.png" alt="PCMR Logo">
+					<h1>Mi cuenta</h1>
+				</li>
+				<li class="headerRight">
+					<a href="#">CONTACTO</a>
+				</li>
+				<li class="headerRight">
+					<a href="#">NOTICIAS</a>
+				</li>
+				<li class="headerRight">
+					<a href="#">INICIO</a>
+				</li>
+			</ul>
+		</header>
+
+		<nav>
+			<ul>
+				<li>
+					<a href="#">CONTACTO</a>
+				</li>
+				<li>
+					<a href="#">NOTICIAS</a>
+				</li>
+				<li>
+					<a href="#">INICIO</a>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="content">
+			<section class="container">
+				<div class="left sectionTitle">
+					<h3>INFORMACIÓN DE LA CUENTA</h3>
+				</div>
+				<div class="left section66">
+					<form>
+						Nombre de usuario<br>
+						<input id="username" type="text" name="username" required><br>
+						Contraseña<br>
+						<input id="password" type="password" name="password" required pattern="[a-z0-9]{1,8}"><br>
+					</form>
+				</div>
+			</section>
+
+			<section class="container">
+				<div class="left sectionTitle">
+					<h3>INFORMACIÓN PERSONAL</h3>
+				</div>
+				<div class="left section33">
+					<form>
+						Nombre y apellido<br>
+						<input id="fullname" type="text" required><br>
+						Fecha de nacimiento<br>
+						<input id="birthdate" type="date" required><br>
+						Foto de perfil<br>
+						<input id="profilePicture" class="hidden" type="file" accept="image/*">
+						<label for="profilePicture">
+							<span>Elegir imagen</span>
+							<i class="material-icons">folder</i>
+						</label>
+
+					</form>
+				</div>
+				<div class="left section33">
+					<form>
+						e-mail<br>
+						<input id="email" type="email" readonly required><br>
+						Idioma<br>
+						<select>
+							<option value="es">Español</option>
+							<option value="en">English</option>
+							<option value="it">Italiano</option>
+							<option value="fr">Français</option>
+							<option value="pt">Português</option>
+							<option value="ru">&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;</option>
+						</select><br>
+						<img class="imgUser" src="./images/logo.png" alt="User logo">
+					</form>
+				</div>
+			</section>
+
+			<section class="container">
+				<div class="left sectionTitle">
+					<h3>INFORMACIÓN DE FACTURACIÓN</h3>
+				</div>
+				<div class="left section66">
+					<form>
+						Dirección<br>
+						<input id="address" class="section90" type="text" name="Address" required><br>
+						Método de pago<br>
+						<select id="paymenttype" class="section90" onChange="changePayment(this.options[this.selectedIndex].value);">
+							<option value="cc">Tarjeta de crédito</option>
+							<option value="tr">Transferencia bancaria</option>
+							<option value="pp">PayPal</option>
+						</select><br>
+						<div id="form_cc" class="section90">
+							<div class="payment">
+								Número de tarjeta<br>
+								<input id="ccnumber" type="tel" maxlength="19" name="CardNumber">
+							</div>
+
+							<div class="payment">
+								Fecha<br>
+								<input id="ccdate1" type="tel" maxlength="2" name="CCMonth">
+								/
+								<input id="ccdate2" type="tel" maxlength="2" name="CCYear">
+							</div>
+
+							<div class="payment">
+								CVC<br>
+								<input id="cccvc" type="tel" maxlength="3" name="CCCVC">
+							</div>
+						</div>
+						<div id="form_tr" class="section90 hidden">
+							<p>
+								Beneficiario: Pepito Pérez<br>
+								Número de cuenta: 1234-1234-1234-1234<br>
+								Banco de Pepito
+							</p>
+						</div>
+						<div id="form_pp" class="section90 hidden">
+							<a href="https://www.paypal.me/PabloFerrer">Enlace a PayPal</a>
+						</div>
+					</form>
+				</div>
+			</section>
+			<section class="container">
+				<div class="right section66">
+					<form>
+						<input id="iHaveRead" type="checkBox" required>He leído y acepto las condiciones de uso.
+						<br>
+						<br>
+						<input id="submitButton" type="button" value="Guardar" onclick="submitForm()">
+						<input id="clearButton" type="button" value="Borrar" onclick="clearForm()">
+					</form>
+				</div>
+			</section>
+		</div>
+
+		<footer>
+			<ul>
+				<li>
+					<a href="#">Inicio</a>
+				</li>
+				<li>
+					<a href="#">Noticias</a>
+				</li>
+				<li>
+					<a href="#">Contacto</a>
+				</li>
+			</ul>
+			<hr>
+			<ul class="footerLines">
+				<li>
+					<a href="#">FAQ</a>
+				</li>
+				<li>
+					<a href="#">Miembros</a>
+				</li>
+				<li>
+					<a href="#">Eventos</a>
+				</li>
+			</ul>
+			<hr>
+			<ul>
+				<li>
+					<a href="#">Prensa</a>
+				</li>
+				<li>
+					<a href="#">Mapa del sitio</a>
+				</li>
+				<li>
+					<a href="#">pcmruc3m.wordpress.com</a>
+				</li>
+			</ul>
+		</footer>
+	
+</body></html>
