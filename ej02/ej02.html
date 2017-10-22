@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>PCMR UC3M</title>
+<!-- 		<link rel="stylesheet" type="text/css" href="style/reset.css">
+ -->		<link rel="stylesheet" type="text/css" href="style/ej02.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<script src="scripts/script.js"></script>
+	</head>
+	<body>
+		<div id="myModalLogin" class="modalLogin">
+			<div class="modalLogin-content">
+				<form id="modalForm" name="modalForm" onsubmit="return false">
+					<input id="emailModal" name="emailModal" type="email" placeholder="Email" required>
+					<input id="passwordModal" name="passwordModal" type="password" placeholder="Password" required pattern="[a-z0-9]{1,8}">
+					<input id="submitBtn" type="button" value="Submit" onclick="checkEmail()">
+				</form>
+			</div>			
+		</div>
+
+		<header>
+			<ul>
+				<li class="left">
+					<img class="imgLogo" src="images/logo.png">
+					<h1 class="headerSmall">Inicio</h1>
+				</li>
+				<li class="right">
+					<img class="imgLogo" src="images/logo.png">
+				</li>
+				<li class="right">
+					<a id="userName">Napster653</a>
+				</li>
+			</ul>
+		</header>
+		<div class="content">
+			<section class="container" ondrop="drop(event)" ondragover="allowDrop(event)">
+				<p id="vid0" hidden>vid001</p>
+				<h3 id="jsTitle"></h3>
+				<div class="videoInfo">
+					<div class="videoStats">
+						<a onclick="addLike()">
+							<i class="material-icons">favorite</i> Like
+						</a>
+						<input id="LikeCounter" type="number" value="0" readonly>
+						<a onclick="addShare()">
+							<i class="material-icons">share</i> Share
+						</a>
+						<input id="ShareCounter" type="number" value="0" readonly>
+					</div>
+					<div class="videoDescription">
+						<p id="jsDesc1"></p>
+						<p id="jsDesc2"></p>
+					</div>
+				</div>
+				<div class="videoFrame">
+					<iframe id="jsLink" src="" frameborder="0" allowfullscreen>
+					</iframe>
+				</div>
+			</section>
+
+			<section class="container">
+				<h3>Galería</h3>
+
+				<div class="galleryContainer" draggable="true" ondragstart="drag(event,'vidA')">
+					<p id="vidA" hidden>vid002</p>
+					<div class="galleryVideo">
+						<div class="gallerySnapshot">
+							<img id="a_thumb" src="">
+						</div>
+						<div class="galleryTitle">
+							<h4 id="a_title"></h4><i class="material-icons" onclick="displayInfo('vidA');">add_circle</i>
+						</div>
+					</div>
+				</div>
+
+				<div class="galleryContainer" draggable="true" ondragstart="drag(event,'vidB')">
+					<p id="vidB" hidden>vid003</p>
+					<div class="galleryVideo">
+						<div class="gallerySnapshot">
+							<img id="b_thumb" src="">
+						</div>
+						<div class="galleryTitle">
+							<h4 id="b_title"></h4><i class="material-icons" onclick="displayInfo('vidB');">add_circle</i>
+						</div>
+					</div>
+				</div>
+
+				<div class="galleryContainer" draggable="true" ondragstart="drag(event,'vidC')">
+					<p id="vidC" hidden>vid004</p>
+					<div class="galleryVideo">
+						<div class="gallerySnapshot">
+							<img id="c_thumb" src="">
+						</div>
+						<div class="galleryTitle">
+							<h4 id="c_title"></h4><i class="material-icons" onclick="displayInfo('vidC');">add_circle</i>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<footer>
+			<ul>
+				<li>
+					<a href="#">Inicio</a>
+				</li>
+				<li>
+					<a href="#">Noticias</a>
+				</li>
+				<li>
+					<a href="#">Contacto</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="#">FAQ</a>
+				</li>
+				<li>
+					<a href="#">Miembros</a>
+				</li>
+				<li>
+					<a href="#">Eventos</a>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<a href="#">Prensa</a>
+				</li>
+				<li>
+					<a href="#">Mapa del sitio</a>
+				</li>
+				<li>
+					<a href="#">pcmruc3m.wordpress.com</a>
+				</li>
+			</ul>
+		</footer>
+
+		<div id="modalVideoInfo" class="modal">
+			<div class="modal-content">
+				<h3 id="modalTitle"></h3>
+				<h4 id="modalDesc1"></h4>
+				<p id="modalDesc2"></p>
+			</div>
+		</div>
+
+	</body>
+</html>
